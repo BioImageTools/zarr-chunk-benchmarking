@@ -49,10 +49,11 @@ def create_zarr_python(zarrfile, array_name, chunk_shape, shard_shape, dims):
                   chunks=shard_shape, # this is shard size e.g. largest chunk size [Davis Nov 2024]
                   fill_value=1,
                   codecs=shard_codec)
-    print('this is the data: ', z)
+    z[:] = np.zeros(shape=shard_shape)
     #print(z[0]) # this does print a bunch of 1s as expected
-    z2 = zarr.open(f"{zarrfile}/{array_name}", mode='r')
-    print(z2[0,0])
+    #z2 = zarr.open(f"{zarrfile}/{array_name}", mode='r')
+    #print(z2[0,0]) # weirdly this also seems to say there is data present
+    # FIXME why does this data not seem to appear as expected in chunks in the files?
     
 
 
