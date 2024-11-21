@@ -1,0 +1,3 @@
+tensorstore==0.1.68
+zarr==3.0.0b2
+packaging # Davis: "This is dumb; submit a PR"
